@@ -5,7 +5,7 @@ const axios = require("axios");
 const app = express();
 const port = process.env.PORT || 3001; // You can set the port number here
 
-const BOT_TOKEN = "6666372600:AAGdpxrOwVwUJjDZ2tFft5m3rFypIr1en8M"; // Replace with your Telegram bot token
+const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN; // Replace with your Telegram bot token
 const TELEGRAM_API = `https://api.telegram.org/bot${BOT_TOKEN}`;
 const URI = `/webhook/${BOT_TOKEN}`;
 const WEBHOOK_URL =

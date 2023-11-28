@@ -79,7 +79,7 @@ export default function Home() {
         <TelegramLoginButton
           botName="EntropyTesting_Bot"
           dataOnauth={(user) => console.log(user)}
-          dataAuthUrl="https://6f54-2406-7400-63-1b8a-c878-c7f-ff08-9f43.ngrok-free.app"
+          dataAuthUrl={process.env.PRODUCTION_DOMAIN}
         />
       )}
       {isLoggedIn && <UserCard />}
