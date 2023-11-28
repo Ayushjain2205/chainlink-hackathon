@@ -1,6 +1,6 @@
 const axios = require("axios");
 
-const botToken = "6666372600:AAGdpxrOwVwUJjDZ2tFft5m3rFypIr1en8M"; // Hardcoded bot token
+const botToken = process.env.TELEGRAM_BOT_TOKEN;
 
 function sendTelegramMessage(userId, message) {
   const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
