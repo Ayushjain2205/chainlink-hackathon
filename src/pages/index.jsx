@@ -79,7 +79,7 @@ export default function Home() {
         <TelegramLoginButton
           botName="EntropyTesting_Bot"
           dataOnauth={(user) => console.log(user)}
-          dataAuthUrl={process.env.PRODUCTION_DOMAIN}
+          dataAuthUrl="https://trading-bott.netlify.app/"
         />
       )}
       {isLoggedIn && <UserCard />}
