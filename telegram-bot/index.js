@@ -1,21 +1,40 @@
+const express = require("express");
+const bodyParser = require("body-parser");
 const axios = require("axios");
 
-function sendTelegramMessage(chatId, message, botToken) {
-  const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
-  const data = {
+const app = express();
+const port = process.env.PORT || 3001; // You can set the port number here
+
+const BOT_TOKEN = "6666372600:AAGdpxrOwVwUJjDZ2tFft5m3rFypIr1en8M"; // Replace with your Telegram bot token
+const TELEGRAM_API = `https://api.telegram.org/bot${BOT_TOKEN}`;
+const URI = `/webhook/${BOT_TOKEN}`;
+const WEBHOOK_URL =
+  "https://rnjcy-2406-7400-63-1b8a-d826-ebc1-4f92-f2eb.a.free.pinggy.online" +
+  URI;
+
+app.use(bodyParser.json());
+
+const init = async () => {
+  const res = await axios.get(`${TELEGRAM_API}/setWebhook?url=${WEBHOOK_URL}`);
+  console.log(res.data);
+};
+
+app.post(URI, async (req, res) => {
+  console.log(req.body);
+
+  const chatId = req.body.message.chat.id;
+  const text = req.body.message.text;
+
+  // Respond to the message
+  await axios.post(`${TELEGRAM_API}/sendMessage`, {
     chat_id: chatId,
-    text: message,
-  };
+    text: `You said: ${text}`,
+  });
 
-  return axios
-    .post(url, data)
-    .then((response) => response.data)
-    .catch((error) => console.error("Error sending message:", error));
-}
+  return res.send();
+});
 
-// Example usage
-const botToken = "6666372600:AAGdpxrOwVwUJjDZ2tFft5m3rFypIr1en8M"; // Replace with your actual bot token
-const userChatId = "1291727504"; // Replace with the actual user ID
-const message = "Hello from your web app!";
-
-sendTelegramMessage(userChatId, message, botToken);
+app.listen(port, async () => {
+  console.log(`Telegram bot listening on port ${port}`);
+  await init(); // Set the webhook
+});

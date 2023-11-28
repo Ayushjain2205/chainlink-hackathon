@@ -1,3 +1,4 @@
+import React, { useEffect } from "react";
 import { useRouter } from "next/router";
 import TelegramLoginButton, { TelegramUser } from "telegram-login-button";
 import sendTelegramMessage from "../actions/welcome";
@@ -7,14 +8,16 @@ export default function Home() {
   const { id, first_name, last_name, username, photo_url, auth_date, hash } =
     router.query;
 
-  const isLoggedIn = Boolean(id); // Check if user is logged in based on the presence of 'id'
+  const isLoggedIn = Boolean(id);
 
-  if (isLoggedIn && id) {
-    const welcomeMessage = "Hello This is your web3 Agent!";
-    sendTelegramMessage(id, welcomeMessage)
-      .then((response) => console.log("Message sent:", response))
-      .catch((error) => console.error("Error:", error));
-  }
+  useEffect(() => {
+    if (isLoggedIn && id) {
+      const welcomeMessage = "Hello This is your web3 Agent!";
+      sendTelegramMessage(id, welcomeMessage)
+        .then((response) => console.log("Message sent:", response))
+        .catch((error) => console.error("Error:", error));
+    }
+  }, [id]);
 
   const UserCard = () => (
     <div
@@ -71,7 +74,7 @@ export default function Home() {
   );
 
   return (
-    <main>
+    <main className="h-screen flex flex-row justify-center items-center">
       {!isLoggedIn && (
         <TelegramLoginButton
           botName="EntropyTesting_Bot"
