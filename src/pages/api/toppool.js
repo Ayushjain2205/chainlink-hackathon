@@ -1,11 +1,24 @@
 import axios from "axios";
 import OpenAI from "openai";
 
+// Token address mapping
+const tokenAddresses = {
+  usdc: "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+  usdt: "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+  bnb: "0xB8c77482e45F1F44dE1745F52C74426C631bDD52",
+  dai: "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+};
+
 export default async function handler(req, res) {
   try {
+    // Get the token parameter or default to 'usdc'
+    const token = req.query.token || "usdc";
+    const tokenAddress =
+      tokenAddresses[token.toLowerCase()] || tokenAddresses["usdc"];
+
     // Fetch data from GeckoTerminal
     const geckoResponse = await axios.get(
-      "https://api.geckoterminal.com/api/v2/networks/eth/pools?page=1"
+      `https://api.geckoterminal.com/api/v2/networks/eth/tokens/${tokenAddress}/pools?page=1`
     );
 
     // Initialize OpenAI
