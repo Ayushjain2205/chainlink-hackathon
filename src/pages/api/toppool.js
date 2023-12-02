@@ -8,9 +8,6 @@ export default async function handler(req, res) {
       "https://api.geckoterminal.com/api/v2/networks/eth/pools?page=1"
     );
 
-    // Take only the first 10 objects
-    const firstTenPools = geckoResponse.data.data.slice(0, 10);
-
     // Initialize OpenAI
     const openai = new OpenAI();
 
@@ -18,7 +15,7 @@ export default async function handler(req, res) {
     const message = {
       role: "system",
       content: `Given the following pool data from GeckoTerminal: ${JSON.stringify(
-        firstTenPools
+        geckoResponse.data
       )}\n\nIdentify which pool is the best opportunity and return all fields in json:`,
     };
 
