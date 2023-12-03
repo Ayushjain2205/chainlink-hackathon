@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Make the font roboto for the whole website */
+body {
+  font-family: "Roboto Condensed", sans-serif;
+}
