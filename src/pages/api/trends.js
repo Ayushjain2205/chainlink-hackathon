@@ -15,9 +15,17 @@ const calculateAdvancedMetrics = (priceData) => {
   return { high, low, average, sma, stdDeviation };
 };
 
+const cryptoMapping = {
+  eth: "ethereum",
+  link: "link",
+  usdc: "usd-coin",
+  usdt: "tether",
+};
+
 export default async function handler(req, res) {
   try {
-    const cryptoId = req.query.Id || "link";
+    const cryptoQueryId = req.query.Id;
+    const cryptoId = cryptoMapping[cryptoQueryId.toLowerCase()] || "eth";
     const vsCurrency = "usd";
     const days = "10";
 
@@ -40,7 +48,7 @@ export default async function handler(req, res) {
       role: "system",
       content: `Given the following cryptocurrency metrics: ${JSON.stringify(
         metrics
-      )}\n\nEvaluate and provide a score out of 100 on how investable this asset is currently: just a number and a boolean field invest: yes or no ; Return in strict json `,
+      )}\n\nEvaluate and provide a score out of 100 on how investable this asset is currently: just a number `,
     };
 
     // Get completion from OpenAI
