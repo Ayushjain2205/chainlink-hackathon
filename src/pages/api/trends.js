@@ -17,8 +17,8 @@ const calculateAdvancedMetrics = (priceData) => {
 
 export default async function handler(req, res) {
   try {
-    const cryptoId = req.query.id || "bitcoin";
-    const vsCurrency = req.query.currency || "usd";
+    const cryptoId = req.query.Id || "link";
+    const vsCurrency = "usd";
     const days = "10";
 
     const response = await axios.get(
@@ -40,7 +40,7 @@ export default async function handler(req, res) {
       role: "system",
       content: `Given the following cryptocurrency metrics: ${JSON.stringify(
         metrics
-      )}\n\nEvaluate and provide a score out of 100 on how investable this asset is currently: just a number `,
+      )}\n\nEvaluate and provide a score out of 100 on how investable this asset is currently: just a number and a boolean field invest: yes or no ; Return in strict json `,
     };
 
     // Get completion from OpenAI
@@ -52,7 +52,7 @@ export default async function handler(req, res) {
     // Parse the GPT response for the score
     const gptResponse = completion.choices[0]["message"]["content"];
 
-    res.status(200).json({ metrics, score: gptResponse });
+    res.status(200).json({ metrics, priceData, score: gptResponse });
   } catch (error) {
     console.error("Error:", error);
     res
