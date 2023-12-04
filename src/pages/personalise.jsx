@@ -1,6 +1,7 @@
 import React from "react";
 import Layout from "../components/Layout/Layout";
 import SidePanel from "../components/Layout/SidePanel";
+import AddFunds from "../components/UI/AddFunds";
 
 const Personalise = () => {
   return (
@@ -9,6 +10,7 @@ const Personalise = () => {
         <SidePanel />
         <div className="flex flex-col">
           <p className="text-[24px] font-[700]">PERSONALISE NINJA BOT</p>
+          <AddFunds />
         </div>
       </div>
     </Layout>
