@@ -1,6 +1,48 @@
 import React from "react";
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
+} from "recharts";
 
 const SidePanel = () => {
+  const data = [
+    {
+      name: "Aug",
+      uv: 4000,
+      pv: 2400,
+      amt: 2400,
+    },
+    {
+      name: "Sept",
+      uv: 3000,
+      pv: 1398,
+      amt: 2210,
+    },
+    {
+      name: "Oct",
+      uv: 2000,
+      pv: 9800,
+      amt: 2290,
+    },
+    {
+      name: "Nov",
+      uv: 2780,
+      pv: 3908,
+      amt: 2000,
+    },
+    {
+      name: "Dec",
+      uv: 1890,
+      pv: 4800,
+      amt: 2181,
+    },
+  ];
   return (
     <div>
       <div className="flex flex-col w-[393px] border border-[#DCD2C7]">
@@ -37,7 +79,32 @@ const SidePanel = () => {
           </div>
           <div className="border-b-[0.25px] border-[#DCD2C7] p-[20px]">
             <p className="text-[14px] font-[500] text-grey">Trend Forecast</p>
-            <div className="h-[218px]"></div>
+            <div className="h-[218px] pt-[20px]">
+              <ResponsiveContainer width="100%" height="100%">
+                <LineChart
+                  width={500}
+                  height={300}
+                  data={data}
+                  margin={{
+                    top: 5,
+                    right: 30,
+                    left: 20,
+                    bottom: 5,
+                  }}
+                >
+                  <XAxis dataKey="name" />
+                  <YAxis />
+                  <Tooltip />
+                  <Line
+                    type="monotone"
+                    dataKey="pv"
+                    stroke="#E26741"
+                    activeDot={{ r: 8 }}
+                  />
+                  <Line type="monotone" dataKey="uv" stroke="#F5BEAD" />
+                </LineChart>
+              </ResponsiveContainer>
+            </div>
           </div>
           <div className="border-b-[0.25px] border-[#DCD2C7] p-[20px]">
             <p className="text-[14px] font-[500] text-grey mb-[12px]">Alpha</p>
