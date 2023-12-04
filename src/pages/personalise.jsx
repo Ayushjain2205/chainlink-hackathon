@@ -39,7 +39,7 @@ const Personalise = () => {
               Continuous monitoring
             </span>
             <Checkbox
-              borderColor="#DCD2C7" // Tailwind gray-600 for border
+              borderColor="#DCD2C7"
               borderRadius={4}
               borderWidth={1}
               size={20}

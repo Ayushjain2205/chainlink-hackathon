@@ -14,32 +14,32 @@ const SidePanel = () => {
   const data = [
     {
       name: "Aug",
-      uv: 4000,
-      pv: 2400,
+      estimate: 4000,
+      actual: 2400,
       amt: 2400,
     },
     {
       name: "Sept",
-      uv: 3000,
-      pv: 1398,
+      estimate: 3000,
+      actual: 1398,
       amt: 2210,
     },
     {
       name: "Oct",
-      uv: 2000,
-      pv: 9800,
+      estimate: 2000,
+      actual: 9800,
       amt: 2290,
     },
     {
       name: "Nov",
-      uv: 2780,
-      pv: 3908,
+      estimate: 2780,
+      actual: 3908,
       amt: 2000,
     },
     {
       name: "Dec",
-      uv: 1890,
-      pv: 4800,
+      estimate: 1890,
+      actual: 4800,
       amt: 2181,
     },
   ];
@@ -52,8 +52,10 @@ const SidePanel = () => {
           </span>
         </div>
         <div className="flex flex-col ">
-          <div className="border-b-[0.25px] border-[#DCD2C7] p-[20px]">
-            <div className="h-[240px]"></div>
+          <div className="border-b-[0.25px] border-[#DCD2C7] p-[20px] pt-[5px]">
+            <div className="h-[240px] flex flex-row justify-center">
+              <img src="/images/ninja.png" alt="" />
+            </div>
             <p className="text-[28px] font-[700] text-primary">
               NINJA TRADEBOT
             </p>
@@ -95,13 +97,14 @@ const SidePanel = () => {
                   <XAxis dataKey="name" />
                   <YAxis />
                   <Tooltip />
+                  <Legend />
                   <Line
                     type="monotone"
-                    dataKey="pv"
+                    dataKey="actual"
                     stroke="#E26741"
                     activeDot={{ r: 8 }}
                   />
-                  <Line type="monotone" dataKey="uv" stroke="#F5BEAD" />
+                  <Line type="monotone" dataKey="estimate" stroke="#F5BEAD" />
                 </LineChart>
               </ResponsiveContainer>
             </div>
