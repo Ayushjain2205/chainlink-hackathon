@@ -5,6 +5,7 @@ import AddFunds from "../components/UI/AddFunds";
 import ChooseToken from "../components/UI/ChooseToken";
 import Checkbox from "react-custom-checkbox";
 import ChooseNetwork from "../components/UI/ChooseNetwork";
+import SelectFallBack from "../components/UI/SelectFallBack";
 
 const Personalise = () => {
   return (
@@ -16,6 +17,7 @@ const Personalise = () => {
           <AddFunds />
           <ChooseToken />
           <ChooseNetwork />
+          <SelectFallBack />
           <div className="flex flex-row gap-[20px]">
             <div className="flex flex-col mt-[45px]">
               <span className="text-primary font-[500] text-[16px]">
