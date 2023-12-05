@@ -4,6 +4,7 @@ import SidePanel from "../components/Layout/SidePanel";
 import AddFunds from "../components/UI/AddFunds";
 import ChooseToken from "../components/UI/ChooseToken";
 import Checkbox from "react-custom-checkbox";
+import ChooseNetwork from "../components/UI/ChooseNetwork";
 
 const Personalise = () => {
   return (
@@ -14,6 +15,7 @@ const Personalise = () => {
           <p className="text-[24px] font-[700]">PERSONALISE NINJA BOT</p>
           <AddFunds />
           <ChooseToken />
+          <ChooseNetwork />
           <div className="flex flex-row gap-[20px]">
             <div className="flex flex-col mt-[45px]">
               <span className="text-primary font-[500] text-[16px]">
