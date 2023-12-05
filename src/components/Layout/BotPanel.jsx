@@ -27,19 +27,19 @@ const BotPanel = () => {
     {
       name: "Oct",
       Estimate: 2000,
-      Actual: 9800,
+      Actual: 1800,
       amt: 2290,
     },
     {
       name: "Nov",
       Estimate: 2780,
-      Actual: 3908,
+      Actual: 2908,
       amt: 2000,
     },
     {
       name: "Dec",
       Estimate: 1890,
-      Actual: 4800,
+      Actual: 1800,
       amt: 2181,
     },
   ];
@@ -57,49 +57,47 @@ const BotPanel = () => {
             </p>
           </div>
           <div className="border-b-[0.25px] border-[#DCD2C7] p-[20px]">
-            <div className="flex flex-row justify-between mt-[24px]">
+            <div className="flex flex-row  mt-[24px] space-x-[50px]">
               <div className="flex flex-col">
                 <span className="text-[14px] font-[500] text-grey">
                   Invested value
                 </span>
                 <span className="text-[20px] text-primary font-[500]">
-                  69,850
-                </span>
-              </div>
-              <div className="flex flex-col">
-                <span className="text-[14px] font-[500] text-grey">Profit</span>
-                <span className="text-[20px] text-primary font-[500]">
-                  $ 2011.08
+                  5,000
                 </span>
               </div>
               <div className="flex flex-col">
                 <span className="text-[14px] font-[500] text-grey">
-                  Invested value
+                  Current Value
                 </span>
                 <span className="text-[20px] text-primary font-[500]">
-                  69,850
+                  5,601
                 </span>
+              </div>
+              <div className="flex flex-col">
+                <span className="text-[14px] font-[500] text-grey">
+                  Day's Profit
+                </span>
+                <span className="text-[20px] text-primary font-[500]">601</span>
               </div>
             </div>
-            <div className="flex flex-row gap-[40px] mt-[24px]">
+            <div className="flex flex-row mt-[24px] space-x-[40px]">
               <div className="flex flex-col">
                 <span className="text-[14px] font-[500] text-grey">
-                  Invested value
+                  Unrealised Profit
                 </span>
-                <span className="text-[20px] text-primary font-[500]">
-                  69,850
-                </span>
+                <span className="text-[20px] text-primary font-[500]">350</span>
               </div>
               <div className="flex flex-col">
                 <span className="text-[14px] font-[500] text-grey">
                   Realised profit
                 </span>
-                <span className="text-[20px] text-primary font-[500]">500</span>
+                <span className="text-[20px] text-primary font-[500]">210</span>
               </div>
             </div>
           </div>
           <div className="border-b-[0.25px] border-[#DCD2C7] p-[20px]">
-            <div className="flex flex-row gap-[40px]">
+            <div className="flex flex-row mt-[24px] space-x-[100px]">
               <div className="flex flex-col">
                 <span className="text-[14px] font-[500] text-grey">
                   Max Gainer
