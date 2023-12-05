@@ -29,9 +29,9 @@ export default function Home() {
           />
         </div>
         <div className="flex flex-row mt-[20px] space-x-[22px]  pb-[20px]">
-          <div className="flex flex-col h-[238px] w-[393px] py-[15px] border border-primary rounded-[8px] p-[21px]">
+          <div className="flex flex-col h-[238px] w-[393px] py-[15px] border border-primary rounded-[8px] p-[21px] cursor-pointer">
             <div className="flex flex-row gap-[10px]">
-              <span className="text-[20px] font-[700]">MAV, SEI, ARKM</span>
+              <span className="text-[20px] font-[700]">USDT, LIDO, BNB</span>
               <span className="text-[20px] font-[700] text-[#D9D9D9]">+4</span>
             </div>
             <p className="text-[#C3C3C3] text-[12px] font-[700]">
@@ -43,7 +43,7 @@ export default function Home() {
                   1 MONTH
                 </span>
                 <span className="flex flex-row mt-[6px] items-center text-[24px] h-[25px] font-[700]">
-                  50%
+                  17%
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="17"
@@ -65,10 +65,10 @@ export default function Home() {
               </div>
               <div className="flex flex-col w-[66px] ">
                 <span className="h-[14px] text-[12px] text-[#C3C3C3] font-[700] ">
-                  1 MONTH
+                  3 MONTH
                 </span>
                 <span className="flex flex-row mt-[6px] items-center text-[24px] h-[25px] font-[700]">
-                  50%
+                  30%
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="17"
@@ -84,16 +84,16 @@ export default function Home() {
                     />
                   </svg>
                 </span>
-                <span className="text-[16px] h-[21px] font-[700] text-[#F24E1E]">
-                  5/5
+                <span className="text-[16px] h-[21px] font-[700] text-[#0FA958]">
+                  3/5
                 </span>
               </div>
               <div className="flex flex-col w-[66px] ">
                 <span className="h-[14px] text-[12px] text-[#C3C3C3] font-[700] ">
-                  1 MONTH
+                  6 MONTH
                 </span>
                 <span className="flex flex-row mt-[6px] items-center text-[24px] h-[25px] font-[700]">
-                  50%
+                  42%
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="17"
@@ -109,8 +109,8 @@ export default function Home() {
                     />
                   </svg>
                 </span>
-                <span className="text-[16px] h-[21px] font-[700] text-[#F24E1E]">
-                  5/5
+                <span className="text-[16px] h-[21px] font-[700] text-[#0FA958]">
+                  1/5
                 </span>
               </div>
             </div>
@@ -120,9 +120,9 @@ export default function Home() {
               </button>
             </div>
           </div>
-          <div className="flex flex-col h-[238px] w-[393px] py-[15px] border border-primary rounded-[8px] p-[21px]">
+          <div className="flex flex-col h-[238px] w-[393px] py-[15px] border border-primary rounded-[8px] p-[21px] cursor-pointer">
             <div className="flex flex-row gap-[10px]">
-              <span className="text-[20px] font-[700]">MAV, SEI, ARKM</span>
+              <span className="text-[20px] font-[700]">MKR, MATIC, TRC</span>
               <span className="text-[20px] font-[700] text-[#D9D9D9]">+4</span>
             </div>
             <p className="text-[#C3C3C3] text-[12px] font-[700]">
@@ -134,7 +134,7 @@ export default function Home() {
                   1 MONTH
                 </span>
                 <span className="flex flex-row mt-[6px] items-center text-[24px] h-[25px] font-[700]">
-                  50%
+                  18%
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="17"
@@ -156,10 +156,10 @@ export default function Home() {
               </div>
               <div className="flex flex-col w-[66px] ">
                 <span className="h-[14px] text-[12px] text-[#C3C3C3] font-[700] ">
-                  1 MONTH
+                  3 MONTH
                 </span>
                 <span className="flex flex-row mt-[6px] items-center text-[24px] h-[25px] font-[700]">
-                  50%
+                  40%
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="17"
@@ -175,16 +175,16 @@ export default function Home() {
                     />
                   </svg>
                 </span>
-                <span className="text-[16px] h-[21px] font-[700] text-[#F24E1E]">
-                  5/5
+                <span className="text-[16px] h-[21px] font-[700] text-[#0FA958]">
+                  3/5
                 </span>
               </div>
               <div className="flex flex-col w-[66px] ">
                 <span className="h-[14px] text-[12px] text-[#C3C3C3] font-[700] ">
-                  1 MONTH
+                  6 MONTH
                 </span>
                 <span className="flex flex-row mt-[6px] items-center text-[24px] h-[25px] font-[700]">
-                  50%
+                  25%
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="17"
@@ -200,8 +200,8 @@ export default function Home() {
                     />
                   </svg>
                 </span>
-                <span className="text-[16px] h-[21px] font-[700] text-[#F24E1E]">
-                  5/5
+                <span className="text-[16px] h-[21px] font-[700] text-[#0FA958]">
+                  4/5
                 </span>
               </div>
             </div>
@@ -211,7 +211,7 @@ export default function Home() {
               </button>
             </div>
           </div>
-          <div className="flex flex-col items-center justify-center h-[238px] w-[393px] py-[15px] border border-primary rounded-[8px] p-[21px]">
+          <div className="flex flex-col items-center justify-center h-[238px] w-[393px] py-[15px] border border-primary rounded-[8px] p-[21px] cursor-pointer">
             <p className="text-primary text-[24px] font-bold w-[177px] leading-[28px] text-center">
               Create your own set of tokens
             </p>
