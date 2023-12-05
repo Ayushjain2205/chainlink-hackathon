@@ -20,6 +20,7 @@
     "react-custom-checkbox": "^3.1.5",
     "react-dom": "^18",
     "react-google-charts": "^4.0.1",
+    "react-select": "^5.8.0",
     "recharts": "^2.10.3",
     "telegram-login-button": "^0.1.0"
   },
