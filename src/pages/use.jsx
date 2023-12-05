@@ -7,11 +7,12 @@ import BotPanel from "../components/Layout/BotPanel";
 
 export default function App() {
   const [btcData, setBtcData] = useState([]);
+  const [selectedCurrency, setSelectedCurrency] = useState("ethereum");
 
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
-        "https://api.coingecko.com/api/v3/coins/ethereum/ohlc?vs_currency=usd&days=7"
+        `https://api.coingecko.com/api/v3/coins/${selectedCurrency}/ohlc?vs_currency=usd&days=7`
       );
       const formattedData = [["Day", "Low", "Open", "Close", "High"]];
 
@@ -29,7 +30,7 @@ export default function App() {
     };
 
     fetchData();
-  }, []);
+  }, [selectedCurrency]);
 
   const options = {
     legend: "none",
@@ -57,6 +58,18 @@ export default function App() {
       <div className="flex flex-row gap-[20px]">
         <BotPanel />
         <div className="w-full flex-shrink-0 -mx-[200px] overflow-clip">
+          <div className="mx-[180px] px-[20px] border border-[#DCD2C7]">
+            <select
+              value={selectedCurrency}
+              onChange={(e) => setSelectedCurrency(e.target.value)}
+              className="outline-none font-[700] text-grey text-[20px]"
+            >
+              <option value="ethereum">ETH</option>
+              <option value="usd-coin">USDC</option>
+              <option value="tether">USDT</option>
+              <option value="chainlink">LINK</option>
+            </select>
+          </div>
           <Chart
             chartType="CandlestickChart"
             width="100%"
