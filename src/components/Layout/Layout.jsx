@@ -3,13 +3,13 @@ import React from "react";
 
 const Layout = ({ children }) => {
   return (
-    <div className="w-screen overflow-hidden">
+    <div className="max-w-screen overflow-hidden">
       <div className="flex flex-col justify-center p-[26px] h-[80px] bg-[#DCD2C7]">
         <Link href="/">
           <span className="font-[700] text-[24px]"> Navbar</span>
         </Link>
       </div>
-      <div className="px-[30px] py-[32px]"> {children}</div>
+      <div className="px-[30px] py-[32px] overflow-hidden"> {children}</div>
     </div>
   );
 };

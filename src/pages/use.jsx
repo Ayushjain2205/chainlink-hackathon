@@ -1,64 +1,51 @@
-import React, { useState, useEffect } from "react";
-import { Chart } from "react-google-charts";
+import React, { useRef, useState, useEffect } from "react";
 import axios from "axios";
+import dynamic from "next/dynamic";
+const ApexChart = dynamic(() => import("react-apexcharts"), { ssr: false });
 import Layout from "../components/Layout/Layout";
-import SidePanel from "../components/Layout/SidePanel";
 import BotPanel from "../components/Layout/BotPanel";
 
-export default function App() {
-  const [btcData, setBtcData] = useState([]);
+export default function Use() {
+  const [series, setSeries] = useState([]);
   const [selectedCurrency, setSelectedCurrency] = useState("ethereum");
 
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
-        `https://api.coingecko.com/api/v3/coins/${selectedCurrency}/ohlc?vs_currency=usd&days=7`
+        `https://api.coingecko.com/api/v3/coins/${selectedCurrency}/ohlc?vs_currency=usd&days=365`
       );
-      const formattedData = [["Day", "Low", "Open", "Close", "High"]];
-
-      // Format the data
-      response.data.forEach((ohlc) => {
-        const time = new Date(ohlc[0]).toLocaleDateString();
-        const open = ohlc[1];
-        const high = ohlc[2];
-        const low = ohlc[3];
-        const close = ohlc[4];
-        formattedData.push([time, low, open, close, high]);
-      });
-
-      setBtcData(formattedData);
+      const formattedData = response.data.map((ohlc) => ({
+        x: new Date(ohlc[0]),
+        y: [ohlc[1], ohlc[2], ohlc[3], ohlc[4]],
+      }));
+      setSeries([{ data: formattedData }]);
     };
 
     fetchData();
   }, [selectedCurrency]);
 
   const options = {
-    legend: "none",
-    bar: { groupWidth: "100%" }, // Remove space between bars
-    candlestick: {
-      fallingColor: { strokeWidth: 0, fill: "#a52714" },
-      risingColor: { strokeWidth: 0, fill: "#0f9d58" },
+    chart: {
+      type: "candlestick",
+      height: 350,
     },
-    hAxis: {
-      showTextEvery: 20,
-      slantedText: false,
-      textStyle: {
-        fontSize: 12,
-      },
+
+    xaxis: {
+      type: "datetime",
     },
-    vAxis: {
-      textStyle: {
-        fontSize: 12,
+    yaxis: {
+      tooltip: {
+        enabled: true,
       },
     },
   };
 
   return (
     <Layout>
-      <div className="flex flex-row gap-[20px]">
+      <div className="flex flex-row">
         <BotPanel />
-        <div className="w-full flex-shrink-0 -mx-[200px] overflow-clip">
-          <div className="z-50 absolute w-full mx-[180px] px-[20px] border border-[#DCD2C7]">
+        <div className="w-full flex-shrink-0 ">
+          <div className="w-full  border border-[#DCD2C7]">
             <select
               value={selectedCurrency}
               onChange={(e) => setSelectedCurrency(e.target.value)}
@@ -70,14 +57,16 @@ export default function App() {
               <option value="chainlink">LINK</option>
             </select>
           </div>
-          <div className="-mt-[50px]">
-            <Chart
-              chartType="CandlestickChart"
-              width="100%"
-              height="790px"
-              data={btcData}
-              options={options}
-            />
+          <div className="">
+            <div className="chart">
+              <ApexChart
+                options={options}
+                series={series}
+                type="candlestick"
+                height={800}
+                width={1300}
+              />
+            </div>
           </div>
         </div>
       </div>

@@ -14,32 +14,32 @@ const SidePanel = () => {
   const data = [
     {
       name: "Aug",
-      estimate: 4000,
-      actual: 2400,
+      Estimate: 4000,
+      Actual: 2400,
       amt: 2400,
     },
     {
       name: "Sept",
-      estimate: 3000,
-      actual: 1398,
+      Estimate: 3000,
+      Actual: 1398,
       amt: 2210,
     },
     {
       name: "Oct",
-      estimate: 2000,
-      actual: 9800,
+      Estimate: 2000,
+      Actual: 9800,
       amt: 2290,
     },
     {
       name: "Nov",
-      estimate: 2780,
-      actual: 3908,
+      Estimate: 2780,
+      Actual: 3908,
       amt: 2000,
     },
     {
       name: "Dec",
-      estimate: 1890,
-      actual: 4800,
+      Estimate: 1890,
+      Actual: 4800,
       amt: 2181,
     },
   ];
@@ -100,11 +100,11 @@ const SidePanel = () => {
                   <Legend />
                   <Line
                     type="monotone"
-                    dataKey="actual"
+                    dataKey="Actual"
                     stroke="#E26741"
                     activeDot={{ r: 8 }}
                   />
-                  <Line type="monotone" dataKey="estimate" stroke="#F5BEAD" />
+                  <Line type="monotone" dataKey="Estimate" stroke="#F5BEAD" />
                 </LineChart>
               </ResponsiveContainer>
             </div>
@@ -114,8 +114,7 @@ const SidePanel = () => {
             <div className="flex flex-col gap-[20px]">
               <div className="flex flex-row justify-between items-center">
                 <p className="w-[288px] h-[38px] font-[400] text-grey text-[16px]">
-                  Lorem ipsum dolor sit amet consectetur. Quis varius turpis
-                  purus rhoncus scelerisque eget .
+                  ARG pumping, buyers increase 65% in 2 days, TVL up 9%
                 </p>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -134,8 +133,7 @@ const SidePanel = () => {
               </div>
               <div className="flex flex-row justify-between items-center">
                 <p className="w-[288px] h-[38px] font-[400] text-grey text-[16px]">
-                  Lorem ipsum dolor sit amet consectetur. Quis varius turpis
-                  purus rhoncus scelerisque eget .
+                  Can ETH reach $2500 before 2024? Find out more.
                 </p>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
