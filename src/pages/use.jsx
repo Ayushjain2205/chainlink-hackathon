@@ -12,7 +12,7 @@ export default function Use() {
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
-        `https://api.coingecko.com/api/v3/coins/${selectedCurrency}/ohlc?vs_currency=usd&days=365`
+        `https://api.coingecko.com/api/v3/coins/${selectedCurrency}/ohlc?vs_currency=usd&days=14`
       );
       const formattedData = response.data.map((ohlc) => ({
         x: new Date(ohlc[0]),
