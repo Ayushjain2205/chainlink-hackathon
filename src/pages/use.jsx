@@ -58,7 +58,7 @@ export default function App() {
       <div className="flex flex-row gap-[20px]">
         <BotPanel />
         <div className="w-full flex-shrink-0 -mx-[200px] overflow-clip">
-          <div className="mx-[180px] px-[20px] border border-[#DCD2C7]">
+          <div className="z-50 absolute w-full mx-[180px] px-[20px] border border-[#DCD2C7]">
             <select
               value={selectedCurrency}
               onChange={(e) => setSelectedCurrency(e.target.value)}
@@ -70,13 +70,15 @@ export default function App() {
               <option value="chainlink">LINK</option>
             </select>
           </div>
-          <Chart
-            chartType="CandlestickChart"
-            width="100%"
-            height="790px"
-            data={btcData}
-            options={options}
-          />
+          <div className="-mt-[50px]">
+            <Chart
+              chartType="CandlestickChart"
+              width="100%"
+              height="790px"
+              data={btcData}
+              options={options}
+            />
+          </div>
         </div>
       </div>
     </Layout>
