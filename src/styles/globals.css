@@ -6,3 +6,12 @@
 body {
   font-family: "Roboto Condensed", sans-serif;
 }
+
+.connect-wallet {
+  width: 160px !important;
+  height: 40px !important;
+  background: #6e5b98 !important;
+  border-radius: 5px !important;
+  color: white !important;
+  border: none !important;
+}

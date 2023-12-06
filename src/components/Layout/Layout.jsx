@@ -1,5 +1,6 @@
 import Link from "next/link";
 import React from "react";
+import { ConnectWallet } from "@thirdweb-dev/react";
 
 const Layout = ({ children }) => {
   return (
@@ -18,9 +19,7 @@ const Layout = ({ children }) => {
               <Link href="/use" className="text-[20px] text-primary font-[500]">
                 My Bots
               </Link>
-              <button className="w-[160px] h-[40px] bg-primary text-white font-[500] rounded-[5px]">
-                Connect Wallet
-              </button>
+              <ConnectWallet className="connect-wallet" />
             </div>
           </div>
         </Link>
