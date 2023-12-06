@@ -67,13 +67,24 @@ export default function Use() {
               </select>
             </div>
             <div className="absolute top-[125px] right-[30px]">
-              {!isLoggedIn && (
+              {!isLoggedIn ? (
                 <TelegramLoginButton
                   botName="EntropyTesting_Bot"
                   dataOnauth={(user) => console.log(user)}
-                  dataAuthUrl="https://trading-bott.netlify.app/"
+                  dataAuthUrl="https://trading-bott.netlify.app/use"
                   cornerRadius={5}
                 />
+              ) : (
+                <div className="flex flex-row gap-[5px] px-[10px] items-center rounded-[5px] bg-[#54A9EA] w-[160px] h-[40px]">
+                  <img
+                    className="h-[30px] w-[30px] rounded-full"
+                    src={decodeURIComponent(photo_url)}
+                    alt=""
+                  />
+                  <span className="text-white font-[16px]">
+                    {first_name} {last_name}
+                  </span>
+                </div>
               )}
             </div>
           </div>
