@@ -109,7 +109,7 @@ const ChooseToken = () => {
             <div
               key={token.name}
               className={`flex flex-row h-[50px] px-[30px] items-center gap-[10px] cursor-pointer ${
-                selectedTokens.includes(token.name) ? "bg-blue-200" : ""
+                selectedTokens.includes(token.name) ? "bg-accent" : ""
               }`}
               onClick={() => selectToken(token.name)}
             >
