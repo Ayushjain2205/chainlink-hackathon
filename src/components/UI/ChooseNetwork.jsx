@@ -84,7 +84,7 @@ const ChooseNetwork = () => {
               onClick={() => selectToken(token.name)}
             >
               <img
-                className="h-[30px] w-[30px]"
+                className="h-[30px] w-[30px] rounded-full"
                 src={token.image}
                 alt={token.name}
               />
