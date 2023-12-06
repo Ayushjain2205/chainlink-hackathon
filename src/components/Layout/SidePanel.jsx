@@ -101,10 +101,10 @@ const SidePanel = () => {
                   <Line
                     type="monotone"
                     dataKey="Actual"
-                    stroke="#E26741"
+                    stroke="#6E5B98"
                     activeDot={{ r: 8 }}
                   />
-                  <Line type="monotone" dataKey="Estimate" stroke="#F5BEAD" />
+                  <Line type="monotone" dataKey="Estimate" stroke="#C0B5D9" />
                 </LineChart>
               </ResponsiveContainer>
             </div>

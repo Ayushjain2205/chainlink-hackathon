@@ -115,7 +115,7 @@ export default function Home() {
               </div>
             </div>
             <div className="flex ">
-              <button className="mt-[26px] w-full bg-[#E26741] font-[700] text-white rounded-[5px] h-[40px]">
+              <button className="mt-[26px] w-full bg-primary font-[700] text-white rounded-[5px] h-[40px]">
                 Create
               </button>
             </div>
@@ -206,13 +206,13 @@ export default function Home() {
               </div>
             </div>
             <div className="flex ">
-              <button className="mt-[26px] w-full bg-[#E26741] font-[700] text-white rounded-[5px] h-[40px]">
+              <button className="mt-[26px] w-full bg-primary font-[700] text-white rounded-[5px] h-[40px]">
                 Create
               </button>
             </div>
           </div>
-          <div className="flex flex-col items-center justify-center h-[238px] w-[393px] py-[15px] border border-primary rounded-[8px] p-[21px] cursor-pointer">
-            <p className="text-primary text-[24px] font-bold w-[177px] leading-[28px] text-center">
+          <div className="flex flex-col bg-primary items-center justify-center h-[238px] w-[393px] py-[15px] border border-primary rounded-[8px] p-[21px] cursor-pointer">
+            <p className="text-white text-[24px] font-bold w-[177px] leading-[28px] text-center">
               Create your own set of tokens
             </p>
           </div>
