@@ -28,10 +28,31 @@ export default async function handler(req, res) {
             keyboard,
             TELEGRAM_API
           );
+        } else if (text === "/changestrategy") {
+          const keyboard = [
+            [
+              { text: "Yes, let's do it! ✅", callback_data: "change_yes" },
+              { text: "No ❌", callback_data: "change_no" },
+            ],
+          ];
+          await sendTelegramMessage(
+            chatId,
+            "<b>Do you think you need to change your strategy?</b>",
+            keyboard,
+            TELEGRAM_API
+          );
         } else if (text === "/showforecast") {
           const imageUrl =
-            "https://i.ibb.co/jvjw8LY/Screenshot-2023-12-07-at-5-29-00-PM.png"; // Replace with your image URL
-          await sendTelegramPhoto(chatId, imageUrl, TELEGRAM_API);
+            "https://i.ibb.co/jvjw8LY/Screenshot-2023-12-07-at-5-29-00-PM.png";
+          const caption = "This is your daily forecast 📊 📊 📊";
+          await sendTelegramPhoto(chatId, imageUrl, caption, TELEGRAM_API);
+        } else if (text === "/tax") {
+          await sendTelegramMessage(
+            chatId,
+            "Your tax is 1230",
+            null,
+            TELEGRAM_API
+          );
         } else {
           // Echo the received message
           await sendTelegramMessage(
@@ -77,10 +98,21 @@ async function sendTelegramMessage(chatId, text, keyboard, TELEGRAM_API) {
   const data = {
     chat_id: chatId,
     text: text,
+    parse_mode: "HTML",
     ...(keyboard && {
       reply_markup: JSON.stringify({ inline_keyboard: keyboard }),
     }),
   };
 
   return axios.post(`${TELEGRAM_API}/sendMessage`, data);
+}
+
+async function sendTelegramPhoto(chatId, photoUrl, caption, TELEGRAM_API) {
+  const data = {
+    chat_id: chatId,
+    photo: photoUrl,
+    caption: caption,
+  };
+
+  return axios.post(`${TELEGRAM_API}/sendPhoto`, data);
 }

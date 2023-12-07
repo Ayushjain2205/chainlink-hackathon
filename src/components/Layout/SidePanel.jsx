@@ -60,9 +60,10 @@ const SidePanel = () => {
               NINJA TRADEBOT
             </p>
             <p className="text-[16px] text-grey">
-              Lorem ipsum dolor sit amet consectetur. Quis varius turpis purus
-              rhoncus scelerisque eget donec consequat diam. Ultricies auctor
-              sed justo molestie sollicitudin habitant eleifend nisl viverra.
+              Our trading bot employs quantitative precision, adeptly navigating
+              market complexities. With a focus on trend-following strategies
+              and strategic rebalancing, it maximizes returns while minimizing
+              risk.
             </p>
             <div className="flex flex-row justify-between mt-[24px]">
               <div className="flex flex-col">

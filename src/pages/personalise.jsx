@@ -34,7 +34,7 @@ const Personalise = () => {
               </span>
               <input
                 type="text"
-                className="mt-[7px] w-[290px] h-[45px] border border-[#DCD2C7] rounded-[7px]"
+                className="px-[20px] mt-[7px] w-[290px] h-[45px] border border-[#DCD2C7] rounded-[7px]"
               />
             </div>
             <div className="flex flex-col mt-[45px]">
@@ -43,7 +43,7 @@ const Personalise = () => {
               </span>
               <input
                 type="text"
-                className="mt-[7px] w-[290px] h-[45px] border border-[#DCD2C7] rounded-[7px]"
+                className="px-[20px] mt-[7px] w-[290px] h-[45px] border border-[#DCD2C7] rounded-[7px]"
               />
             </div>
           </div>

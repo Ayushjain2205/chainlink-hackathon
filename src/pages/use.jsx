@@ -94,8 +94,8 @@ export default function Use() {
                 options={options}
                 series={series}
                 type="candlestick"
-                height={800}
-                width={1300}
+                height={700}
+                width={1000}
               />
             </div>
           </div>
