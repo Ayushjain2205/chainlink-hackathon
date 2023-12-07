@@ -28,6 +28,10 @@ export default async function handler(req, res) {
             keyboard,
             TELEGRAM_API
           );
+        } else if (text === "/showforecast") {
+          const imageUrl =
+            "https://i.ibb.co/jvjw8LY/Screenshot-2023-12-07-at-5-29-00-PM.png"; // Replace with your image URL
+          await sendTelegramPhoto(chatId, imageUrl, TELEGRAM_API);
         } else {
           // Echo the received message
           await sendTelegramMessage(
