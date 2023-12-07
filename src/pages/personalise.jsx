@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import Link from "next/link";
 import Layout from "../components/Layout/Layout";
 import SidePanel from "../components/Layout/SidePanel";
 import AddFunds from "../components/UI/AddFunds";
@@ -9,6 +10,13 @@ import SelectFallBack from "../components/UI/SelectFallBack";
 import AIsuggestions from "../components/UI/AIsuggestions";
 
 const Personalise = () => {
+  const [showSuggestions, setShowSuggestions] = useState(false);
+
+  const handleSuggestionsChange = (checked) => {
+    setShowSuggestions(checked);
+    console.log("Suggestions checkbox checked: ", checked);
+  };
+
   return (
     <Layout>
       <div className="flex flex-row gap-[20px]">
@@ -78,7 +86,7 @@ const Personalise = () => {
               borderWidth={1}
               size={20}
               checked={false}
-              onChange={(checked) => console.log("checked: ", checked)}
+              onChange={handleSuggestionsChange}
               style={{ cursor: "pointer" }}
               uncheckedIcon={<div className="bg-white w-full h-full" />} // Customize unchecked state
               icon={
@@ -97,7 +105,14 @@ const Personalise = () => {
               }
             />
           </div>
-          <AIsuggestions />
+          {showSuggestions && <AIsuggestions />}
+          <div className="flex justify-end">
+            <Link href="/use">
+              <button className="mt-[20px] h-[45px] w-[164px] bg-primary text-white font-[500] rounded-[10px]">
+                Confirm, lets go
+              </button>
+            </Link>
+          </div>
         </div>
       </div>
     </Layout>
