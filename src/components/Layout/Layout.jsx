@@ -9,7 +9,7 @@ const Layout = ({ children }) => {
         <div className="flex flex-row justify-between items-center">
           <div className="flex flex-row gap-[20px] items-center ml-[180px]">
             <img src="/bot.svg" alt="" />
-            <span className="font-[700] text-[24px]"> Botcoin</span>
+            <span className="font-[700] text-[24px]"> BOTCOIN</span>
           </div>
           <div className="flex flex-row gap-[30px] items-center">
             <Link href="/" className="text-[20px] text-primary font-[500]">

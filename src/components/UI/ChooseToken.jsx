@@ -190,6 +190,12 @@ const ChooseToken = () => {
                   </div>
                 );
               })}
+              <div className="flex flex-row gap-[10px] animate-pulse">
+                <img className="w-[23px]" src="/bot.svg" alt="" />
+                <span className="text-primary font-[700] text-[16px] ">
+                  ETH : 40%, LINK: 60%
+                </span>
+              </div>
             </div>
           )}
         </div>
