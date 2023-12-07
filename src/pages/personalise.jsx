@@ -6,6 +6,7 @@ import ChooseToken from "../components/UI/ChooseToken";
 import Checkbox from "react-custom-checkbox";
 import ChooseNetwork from "../components/UI/ChooseNetwork";
 import SelectFallBack from "../components/UI/SelectFallBack";
+import AIsuggestions from "../components/UI/AIsuggestions";
 
 const Personalise = () => {
   return (
@@ -96,6 +97,7 @@ const Personalise = () => {
               }
             />
           </div>
+          <AIsuggestions />
         </div>
       </div>
     </Layout>
