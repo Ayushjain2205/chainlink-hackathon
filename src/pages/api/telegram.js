@@ -13,44 +13,82 @@ export default async function handler(req, res) {
         const chatId = req.body.message.chat.id;
         const text = req.body.message.text;
 
-        // Example: sending a message with Yes/No options
         if (text === "/start") {
-          const keyboard = [
-            [
-              { text: "Yesss 🤭", callback_data: "yes" },
-              { text: "No 🤬", callback_data: "no" },
-              { text: "Maybe 🤷🏻", callback_data: "maybe" },
-            ],
-          ];
           await sendTelegramMessage(
             chatId,
-            "Are you a monster?",
-            keyboard,
+            "Welcome to Botcoin!",
+            null,
             TELEGRAM_API
           );
+
+          // Set a timeout to execute after 5 seconds
+          setTimeout(async () => {
+            const keyboard = [
+              [
+                { text: "Yes ✅", callback_data: "change_yes" },
+                { text: "No ❌", callback_data: "change_no" },
+              ],
+            ];
+            await sendTelegramMessage(
+              chatId,
+              `❌❌ WE ARE LOSING ❌❌
+
+The strategy is not optimised for the market right now, we are losing money. 😤😤
+
+<b>Suggestion: Deploy a new strategy parameter around "Sentiment Analysis"
+It can be a valuable tool in trading for gaining insights into market sentiment, investor emotions, and overall market dynamics.</b> <a href="trade-bot.netlify.app">Know more</a>`,
+              keyboard,
+              TELEGRAM_API
+            );
+          }, 5000);
+
+          setTimeout(async () => {
+            const message =
+              "📣🌟 NEW TOKEN ALERT 🌟📣\n\nAEUR is a new token in the market. " +
+              "<a href='trade-bot.netlify.app'>View details</a>.\n\n" +
+              "<b>ADD TO PORTFOLIO TO MAKE THE MOST OF IT</b>";
+            await sendTelegramMessage(chatId, message, null, TELEGRAM_API);
+          }, 15000);
         } else if (text === "/changestrategy") {
           const keyboard = [
             [
-              { text: "Yes, let's do it! ✅", callback_data: "change_yes" },
+              { text: "Yes ✅", callback_data: "change_yes" },
               { text: "No ❌", callback_data: "change_no" },
             ],
           ];
           await sendTelegramMessage(
             chatId,
-            "<b>Do you think you need to change your strategy?</b>",
+            `❌❌ WE ARE LOSING ❌❌
+
+The strategy is not optimised for the market right now, we are losing money. 😤😤
+
+<b>Suggestion: Deploy a new strategy parameter around "Sentiment Analysis"
+It can be a valuable tool in trading for gaining insights into market sentiment, investor emotions, and overall market dynamics.</b> <a href="/">Know more</a>  
+
+YES AND NO OPTION`,
             keyboard,
             TELEGRAM_API
           );
         } else if (text === "/showforecast") {
           const imageUrl =
             "https://i.ibb.co/jvjw8LY/Screenshot-2023-12-07-at-5-29-00-PM.png";
-          const caption = "This is your daily forecast 📊 📊 📊";
+          const caption = `➕➕ POTENTIAL PROFIT GAIN ➕➕
+
+Actual : $600
+Estimate : $1000
+
+🚀 Lets keep going 🚀`;
           await sendTelegramPhoto(chatId, imageUrl, caption, TELEGRAM_API);
         } else if (text === "/tax") {
+          const keyboard = [
+            [{ text: "Send ✅", callback_data: "send_tax_info" }],
+          ];
           await sendTelegramMessage(
             chatId,
-            "Your tax is 1230",
-            null,
+            `📄 TAX INFORMATION 📄
+
+The tax charged on the gains between the financial year of 2023-2024 will be sent to you via mail.`,
+            keyboard,
             TELEGRAM_API
           );
         } else {
@@ -65,7 +103,7 @@ export default async function handler(req, res) {
       } else if (req.body.callback_query) {
         // Handle callback query from inline keyboard
         const callbackQuery = req.body.callback_query;
-        const data = callbackQuery.data; // 'yes' or 'no'
+        const data = callbackQuery.data; // 'change_yes', 'change_no', or 'send_tax_info'
         const chatId = callbackQuery.message.chat.id;
 
         // Respond to the callback query
@@ -73,13 +111,22 @@ export default async function handler(req, res) {
           callback_query_id: callbackQuery.id,
         });
 
-        // Send a follow-up message based on the user's choice
-        await sendTelegramMessage(
-          chatId,
-          `You selected: ${data}`,
-          null,
-          TELEGRAM_API
-        );
+        if (data === "send_tax_info") {
+          await sendTelegramMessage(
+            chatId,
+            "Your tax info will be mailed to you shortly.",
+            null,
+            TELEGRAM_API
+          );
+        } else {
+          // Handle other callback queries like 'change_yes' or 'change_no'
+          await sendTelegramMessage(
+            chatId,
+            `Your strategy will be updated!`,
+            null,
+            TELEGRAM_API
+          );
+        }
       }
 
       res.status(200).send("OK");

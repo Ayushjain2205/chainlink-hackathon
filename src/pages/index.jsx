@@ -2,12 +2,20 @@ import React, { useEffect, useState } from "react";
 import Layout from "../components/Layout/Layout";
 import BotCard from "../components/UI/BotCard";
 import Link from "next/link";
+import sendTelegramMessage from "../actions/welcome";
 
 export default function Home() {
   const [selectedCard, setSelectedCard] = useState(null);
 
   const handleCardSelect = (cardTitle) => {
     setSelectedCard(cardTitle);
+  };
+
+  const welcome = () => {
+    const welcomeMessage = "Hello This is Botcoin!";
+    sendTelegramMessage("iyushjain", welcomeMessage)
+      .then((response) => console.log("Message sent:", response))
+      .catch((error) => console.error("Error:", error));
   };
 
   return (
@@ -117,7 +125,10 @@ export default function Home() {
                 </div>
               </div>
               <div className="flex ">
-                <button className="mt-[26px] w-full bg-primary font-[700] text-white rounded-[5px] h-[40px]">
+                <button
+                  onClick={welcome}
+                  className="mt-[26px] w-full bg-primary font-[700] text-white rounded-[5px] h-[40px]"
+                >
                   Create
                 </button>
               </div>

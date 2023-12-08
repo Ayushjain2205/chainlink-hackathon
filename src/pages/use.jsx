@@ -6,6 +6,7 @@ const ApexChart = dynamic(() => import("react-apexcharts"), { ssr: false });
 import TelegramLoginButton, { TelegramUser } from "telegram-login-button";
 import Layout from "../components/Layout/Layout";
 import BotPanel from "../components/Layout/BotPanel";
+import sendTelegramMessage from "../actions/welcome";
 
 export default function Use() {
   const router = useRouter();
@@ -14,8 +15,19 @@ export default function Use() {
 
   const isLoggedIn = Boolean(id);
 
+  console.log(id);
+
   const [series, setSeries] = useState([]);
   const [selectedCurrency, setSelectedCurrency] = useState("ethereum");
+
+  useEffect(() => {
+    if (isLoggedIn && id) {
+      const welcomeMessage = "Hello This is Botcoin!";
+      sendTelegramMessage(id, welcomeMessage)
+        .then((response) => console.log("Message sent:", response))
+        .catch((error) => console.error("Error:", error));
+    }
+  }, [id]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -71,7 +83,7 @@ export default function Use() {
                 <TelegramLoginButton
                   botName="EntropyTesting_Bot"
                   dataOnauth={(user) => console.log(user)}
-                  dataAuthUrl="https://trading-bott.netlify.app/use"
+                  dataAuthUrl="https://cab7-2406-7400-63-1b8a-d5d9-5a04-9b08-5cd2.ngrok-free.app/use"
                   cornerRadius={5}
                 />
               ) : (
