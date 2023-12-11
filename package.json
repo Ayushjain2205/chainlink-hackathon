@@ -11,6 +11,8 @@
   "dependencies": {
     "@thirdweb-dev/react": "^4.1.12",
     "@thirdweb-dev/sdk": "^4.0.19",
+    "@uniswap/v2-core": "^1.0.1",
+    "@uniswap/v2-periphery": "^1.1.0-beta.0",
     "apexcharts": "^3.44.2",
     "axios": "^1.6.2",
     "body-parser": "^1.20.2",

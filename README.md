@@ -1,40 +1,33 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## 🛠️ How It's Built
 
-## Getting Started
+### 🧠 AI Utilization in Botcoin
 
-First, run the development server:
+Botcoin is powered by a fine-tuned GPT API that's at the heart of its trading decision-making process. Here's the breakdown of AI use:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **AI-Powered Trading Decisions:**
+  - 🎯 **Buy/Sell:** The AI determines the best moments to execute trades to optimize for profit and risk.
+  - 🔁 **Transfer Cross Chain:** Executes secure cross-chain transfers, leveraging Chainlink’s CCIP.
+  - 🔄 **Change Strategy:** Adapts trading strategies in real-time based on market changes.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**Data Sources for AI:**
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+We use the uniswap subgraph powered by the Graph network along with :
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+- **External APIs:** 📡 Aggregates market trends and sentiment analysis.
+- **Data Feeds:** 📊 Provides up-to-the-minute price and market data.
+- **Pool Data:** 🏊 Analyzes liquidity pool data for best trade execution.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+### 🔗 Chainlink Integration
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Botcoin integrates Chainlink services to enhance its functionalities:
 
-## Learn More
+- **Chainlink Functions:**
+  - 🌐 **External API Calls:** Fetches trends and sentiment from various sources to inform AI decisions.
+- **Chainlink CCIP (Cross-Chain Interoperability Protocol):**
+  - 🔗 **Cross-Chain Transactions:** Manages cross-chain asset movements seamlessly.
+- **Chainlink Automation:**
+  - ⏲️ **Smart Contract Automation:** Triggers smart contract actions based on pre-defined events or schedules.
+- **Chainlink Data Feeds:**
+  - 📈 **Price and Market Data:** Provides the AI with reliable price feeds and market data for accurate trading insights.
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+By utilizing Chainlink’s decentralized services, Botcoin ensures that all the operations are not only automated but also secure, reliable, and up-to-date with the current market conditions.
